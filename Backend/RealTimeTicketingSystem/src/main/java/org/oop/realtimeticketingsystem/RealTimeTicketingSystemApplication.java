@@ -1,7 +1,7 @@
 package org.oop.realtimeticketingsystem;
 
-import org.oop.realtimeticketingsystem.config.Configuration;
-import org.oop.realtimeticketingsystem.config.ConfigurationService;
+import org.oop.realtimeticketingsystem.applicationconfig.Configuration;
+import org.oop.realtimeticketingsystem.applicationconfig.ConfigurationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +13,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class RealTimeTicketingSystemApplication implements CommandLineRunner {
 
     private static final Logger logger = LoggerFactory.getLogger(RealTimeTicketingSystemApplication.class);
+    private final ConfigurationService configurationService;
 
     @Autowired
-    private ConfigurationService configurationService;
+    public RealTimeTicketingSystemApplication(ConfigurationService configurationService) {
+        this.configurationService = configurationService;
+    }
 
     public static void main(String[] args) {
         SpringApplication.run(RealTimeTicketingSystemApplication.class, args);

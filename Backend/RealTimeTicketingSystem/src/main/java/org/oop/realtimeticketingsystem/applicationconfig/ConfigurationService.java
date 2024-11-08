@@ -1,4 +1,4 @@
-package org.oop.realtimeticketingsystem.config;
+package org.oop.realtimeticketingsystem.applicationconfig;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
