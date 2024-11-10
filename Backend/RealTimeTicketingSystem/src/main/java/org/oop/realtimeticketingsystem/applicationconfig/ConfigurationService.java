@@ -26,10 +26,14 @@ public class ConfigurationService {
 
     public Configuration loadOrInitializeConfiguration() {
         if (configFile.exists()) {
-            try {
-                configuration = objectMapper.readValue(configFile, Configuration.class);
-            } catch (IOException e) {
-                logger.error("Failed to load existing configuration, starting new setup.", e);
+            System.out.print("Config exists. Do you want to load it? (yes/no): ");
+            var response = scanner.nextLine().trim().toLowerCase();
+            if ("yes".equals(response)) {
+                try {
+                    configuration = objectMapper.readValue(configFile, Configuration.class);
+                } catch (IOException e) {
+                    logger.error("Failed to load existing configuration, starting new setup.", e);
+                }
             }
         }
         if (configuration == null) {
