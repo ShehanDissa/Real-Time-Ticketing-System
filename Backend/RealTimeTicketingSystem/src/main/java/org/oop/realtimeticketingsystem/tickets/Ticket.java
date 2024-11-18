@@ -1,25 +1,25 @@
 package org.oop.realtimeticketingsystem.tickets;
 
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
+@Entity
+@Table(name = "tickets")
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Ticket {
-    private final int ticketId;
-    private final int seatNumber;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
+    @Column(nullable = false)
+    private String status; // e.g., "AVAILABLE", "PURCHASED"
 
-    public Ticket(int ticketId, int seatNumber) {
-        this.ticketId = ticketId;
-        this.seatNumber = seatNumber;
-    }
-
-    public Ticket(int ticketId) {
-        this.ticketId = ticketId;
-        this.seatNumber = ticketId;
-    }
-
-    public Ticket() {
-        this.ticketId = 0;
-        this.seatNumber = 0;
-    }
+    @Column(name = "created_at", updatable = false)
+    private LocalDateTime createdAt = LocalDateTime.now();
 }

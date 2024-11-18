@@ -28,7 +28,7 @@ public class ConfigurationService {
         if (configFile.exists()) {
             System.out.print("Config exists. Do you want to load it? (yes/no): ");
             var response = scanner.nextLine().trim().toLowerCase();
-            if ("yes".equals(response)) {
+            if ("yes".equals(response) || "y".equals(response)) {
                 try {
                     configuration = objectMapper.readValue(configFile, Configuration.class);
                 } catch (IOException e) {
