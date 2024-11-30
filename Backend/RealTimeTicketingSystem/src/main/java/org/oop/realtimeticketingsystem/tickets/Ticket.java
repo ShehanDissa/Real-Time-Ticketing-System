@@ -18,8 +18,11 @@ public class Ticket {
     private Long id;
 
     @Column(nullable = false)
-    private String status; // e.g., "AVAILABLE", "PURCHASED"
+    private String status;
 
     @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt = LocalDateTime.now();
+
+    @Version
+    private Long version;
 }

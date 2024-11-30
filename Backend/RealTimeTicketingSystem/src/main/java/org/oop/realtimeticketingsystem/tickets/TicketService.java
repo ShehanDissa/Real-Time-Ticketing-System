@@ -1,51 +1,48 @@
 package org.oop.realtimeticketingsystem.tickets;
 
 import org.oop.realtimeticketingsystem.applicationconfig.Configuration;
-import org.oop.realtimeticketingsystem.applicationconfig.ConfigurationService;
-import org.oop.realtimeticketingsystem.vendor.Vendor;
-import org.oop.realtimeticketingsystem.customer.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
-public class TicketService implements CommandLineRunner {
+public class TicketService {
 
     private static final Logger log = LoggerFactory.getLogger(TicketService.class);
-
-    private final ConfigurationService configurationService;
     private final TicketPool ticketPool;
+    private final TicketRepository ticketRepository;
 
     @Autowired
-    public TicketService(ConfigurationService configurationService, TicketPool ticketPool) {
-        this.configurationService = configurationService;
+    public TicketService(TicketPool ticketPool, TicketRepository ticketRepository) {
         this.ticketPool = ticketPool;
-    }
-
-    @Override
-    public void run(String... args) throws Exception {
-        Configuration config = configurationService.loadOrInitializeConfiguration();
-        log.info("Configuration loaded successfully with total tickets: {}, ticket release rate: {}, customer retrieval rate: {}, max ticket capacity: {}",
-                config.getTotalTickets(), config.getTicketReleaseRate(), config.getCustomerRetrievalRate(), config.getMaxTicketCapacity());
-
-        ticketPool.initialize(config.getTotalTickets());
-
-        // Start vendor threads
-        for (int i = 0; i < 5; i++) { // Simulate 5 vendors
-            Thread vendorThread = new Thread(new Vendor(ticketPool, config.getTicketReleaseRate(), config.getMaxTicketCapacity()));
-            vendorThread.start();
-        }
-
-        // Start customer threads
-        for (int i = 0; i < 5; i++) { // Simulate 5 customers
-            Thread customerThread = new Thread(new Customer(ticketPool, config.getCustomerRetrievalRate()));
-            customerThread.start();
-        }
+        this.ticketRepository = ticketRepository;
     }
 
     public Integer getTicketCount() {
         return ticketPool.getTicketCount();
     }
+
+    public Integer addTickets(Integer ticketsToAdd) {
+        return ticketPool.addTickets(ticketsToAdd);
+    }
+
+    public Integer removeTickets(Integer ticketsToRemove, String customerId) {
+        return ticketPool.removeTickets(ticketsToRemove, customerId);
+    }
+
+    public void initializeTicketPool(Configuration config) {
+        log.info("Configuration loaded successfully with total tickets: {}, ticket release rate: {}, customer retrieval rate: {}, max ticket capacity: {}",
+                config.getTotalTickets(), config.getTicketReleaseRate(), config.getCustomerRetrievalRate(), config.getMaxTicketCapacity());
+        ticketPool.initialize(config);
+    }
+
+    @Transactional
+    public List<Ticket> getAvailableTickets() {
+        return ticketRepository.findByStatus("AVAILABLE");
+    }
+
 }

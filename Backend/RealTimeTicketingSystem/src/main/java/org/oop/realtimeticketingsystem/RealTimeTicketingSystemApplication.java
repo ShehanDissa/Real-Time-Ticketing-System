@@ -1,5 +1,6 @@
 package org.oop.realtimeticketingsystem;
 
+import org.oop.realtimeticketingsystem.applicationconfig.Configuration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
