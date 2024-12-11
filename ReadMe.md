@@ -1,9 +1,6 @@
-Here's the project information in Markdown format:
+# Real-Time Ticket Management System
 
-```markdown
-# Real-Time Ticket Management Simulation System
-
-This project is a **Real-Time Ticket Management Simulation System** designed with three main components:
+This project is a **Real-Time Ticket Management System** designed with three main components:
 
 - **Backend (Spring Boot)**: Located in the `Backend/RealtimeTicketingSystem` folder.
 - **CLI Application (Maven Java Project)**: Located in the `frontend/RealtimeTicketingSystemCLI` folder.
@@ -102,5 +99,4 @@ Root Directory
 ├── frontend
 │   ├── RealtimeTicketingSystemCLI
 │   └── realtime-ticketing-system
-```
 ```
