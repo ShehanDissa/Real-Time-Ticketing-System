@@ -2,10 +2,7 @@ package org.oop.realtimeticketingsystem.purchase;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
@@ -30,9 +27,9 @@ public class PurchaseController {
     }
 
     @GetMapping ("/all")
-    public ResponseEntity<?> getAllPurchases() {
+    public ResponseEntity<?> getAllPurchases(@RequestParam Integer pageNumber) {
         try {
-            return ResponseEntity.ok(purchaseService.getAllPurchases());
+            return ResponseEntity.ok(purchaseService.getAllPurchases(pageNumber));
         } catch (Exception e) {
             return ResponseEntity.badRequest().body("Error fetching all purchases. " + e.getMessage());
         }

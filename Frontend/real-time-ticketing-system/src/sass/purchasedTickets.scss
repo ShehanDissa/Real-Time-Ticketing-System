@@ -1,0 +1,30 @@
+.purchased-tickets-container {
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.tickets-table-paper {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fafafa;
+    border-radius: 8px;
+}
+
+.MuiTableCell-root {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+.MuiTypography-root {
+    margin-top: 10px;
+    font-size: 1.2rem;
+}
+
+.scrollable-table-container {
+    max-height: 400px; /* Adjust the height of the table */
+    overflow-y: auto; /* Enable vertical scrolling */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}

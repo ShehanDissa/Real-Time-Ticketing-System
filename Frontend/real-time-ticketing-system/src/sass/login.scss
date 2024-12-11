@@ -1,0 +1,114 @@
+.login-page {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #bd8cf3, #003d80);
+
+    .modal-container {
+        display: flex;
+        width: 800px;
+        height: 500px;
+        border-radius: 15px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+        background: white;
+
+        .left-section {
+            flex: 1;
+            background: linear-gradient(135deg, #5702b1, #c109ef);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 20px;
+
+            .welcome-title {
+                font-size: 2rem;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+
+            .welcome-subtitle {
+                font-size: 1rem;
+                margin-top: 5px;
+            }
+        }
+
+        .right-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+
+            .signin-title {
+                font-size: 1.8rem;
+                font-weight: bold;
+                margin-bottom: 20px;
+                color: #333;
+            }
+
+            .input-field {
+                margin-bottom: 15px;
+                width: 100%;
+
+                .MuiOutlinedInput-root {
+                    fieldset {
+                        border-color: #005eb8;
+                    }
+
+                    &:hover fieldset {
+                        border-color: #003d80;
+                    }
+
+                    &.Mui-focused fieldset {
+                        border-color: #003d80;
+                    }
+                }
+            }
+
+            .submit-button {
+                width: 100%;
+                background: linear-gradient(135deg, #6a11cb, #2575fc);
+                color: white;
+                font-weight: bold;
+                margin: 15px 0;
+
+                &:hover {
+                    background: linear-gradient(135deg, #2575fc, #6a11cb);
+                }
+            }
+
+            .toggle-text {
+                font-size: 0.9rem;
+                color: #757575;
+                margin-top: 20px;
+                text-align: center;
+
+                .link-button {
+                    background: none;
+                    border: none;
+                    color: #2575fc;
+                    font-weight: bold;
+                    font-size: 0.9rem;
+                    cursor: pointer;
+                    text-transform: none;
+                    padding: 0;
+
+                    &:hover {
+                        text-decoration: underline;
+                        color: #003d80;
+                    }
+
+                    &:focus {
+                        outline: none;
+                    }
+                }
+            }
+        }
+    }
+}

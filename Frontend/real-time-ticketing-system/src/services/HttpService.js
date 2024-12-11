@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API_URL = 'http://localhost:8080/actuator';
-const token = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJTaGVoYW4iLCJpYXQiOjE3MzMwNTYzMDksImV4cCI6MTczNDc4NDMwOX0.6Qufh3JtRMNOOtFdgiIUXI6ZQCHMPV_plP5E8nXjxls';
+const token = localStorage.getItem('accessToken');
 
 const fetchHttpStats = async () => {
     const headers = {

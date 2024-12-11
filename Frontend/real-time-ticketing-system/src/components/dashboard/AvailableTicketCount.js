@@ -1,5 +1,6 @@
-import React, {useEffect, useState} from 'react';
-import {fetchAvailableTicketCount} from '../../services/TicketsService';
+import React, { useEffect, useState } from 'react';
+import { fetchAvailableTicketCount } from '../../services/TicketsService';
+import '../../sass/availableTicketCount.scss';
 
 const AvailableTicketCount = () => {
 
@@ -16,21 +17,24 @@ const AvailableTicketCount = () => {
     };
 
     useEffect(() => {
-        // Fetch ticket count initially
         fetchData().then(r => console.log('Ticket count fetched'));
 
-        // Set up interval to fetch ticket count every 5 seconds
         const intervalId = setInterval(fetchData, 5000);
 
-        // Cleanup interval on component unmount
         return () => clearInterval(intervalId);
     }, []);
 
     return (
-        <div>
-            <h1>
+        <div className="ticket-count-container">
+            <h1 className="ticket-count-header">
                 Available Ticket Count:{' '}
-                {error ? error : availableTicketCount !== null ? availableTicketCount : 'Loading...'}
+                {error ? (
+                    <span className="error-message">{error}</span>
+                ) : availableTicketCount !== null ? (
+                    <span>{availableTicketCount}</span>
+                ) : (
+                    <span>Loading...</span>
+                )}
             </h1>
         </div>
     );

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { fetchHttpStats } from '../../services/HttpService';
+import { Box, Typography, Paper, CircularProgress } from '@mui/material';
+import '../../sass/httpStats.scss';
 
 const HttpStats = () => {
     const [stats, setStats] = useState(null);
@@ -25,19 +27,21 @@ const HttpStats = () => {
         return () => clearInterval(intervalId);
     }, []);
 
-    if (loading) return <div>Loading stats...</div>;
-    if (error) return <div>{error}</div>;
+    if (loading) return <CircularProgress color="primary" />; // Replaced loading message with a spinner
+    if (error) return <Typography color="error">{error}</Typography>; // Replaced error message with MUI Typography
 
     return (
-        <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
-            <h2>HTTP Stats Dashboard</h2>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                <div><strong>Active Connections:</strong> {stats.activeConnections}</div>
-                <div><strong>System Uptime:</strong> {stats.uptime}</div>
-                <div><strong>Memory Used:</strong> {stats.memoryUsed}</div>
-                <div><strong>Total HTTP Requests:</strong> {stats.totalRequests}</div>
-            </div>
-        </div>
+        <Box className="http-stats-container">
+            <Typography variant="h4" gutterBottom><h2>HTTP Stats Dashboard</h2></Typography>
+            <Paper className="stats-card" elevation={3}>
+                <Box className="stats-list">
+                    <Typography variant="h6"><strong>Active Connections:</strong> {stats.activeConnections}</Typography>
+                    <Typography variant="h6"><strong>System Uptime:</strong> {stats.uptime}</Typography>
+                    <Typography variant="h6"><strong>Memory Used:</strong> {stats.memoryUsed}</Typography>
+                    <Typography variant="h6"><strong>Total HTTP Requests:</strong> {stats.totalRequests}</Typography>
+                </Box>
+            </Paper>
+        </Box>
     );
 };
 

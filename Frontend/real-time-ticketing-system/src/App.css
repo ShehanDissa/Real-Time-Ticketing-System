@@ -13,7 +13,7 @@
   }
 }
 
-.App-header {
+/* .App-header {
   background-color: #282c34;
   min-height: 10vh;
   display: flex;
@@ -22,6 +22,20 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+} */
+
+.status-message {
+  font-size: 1.2rem;
+  color: #3f7d20;
+  background-color: #e0f7e0;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 42px;
+  max-width: 424px;
+  margin: auto;
+  margin-top: 24px;
+  border: 3px solid #3f7d20;
 }
 
 .App-link {
@@ -34,5 +48,75 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* Typography for Specific Elements */
+h1, h2, h3 {
+  font-family: 'Roboto', sans-serif; /* Use a modern sans-serif font */
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+h3 {
+  font-size: 1.2rem;
+  margin-bottom: 6px;
+}
+
+h4 {
+  font-size: 1rem;
+  margin-top: -20px;
+  margin-bottom: 42px;
+  font-style: italic;
+}
+
+p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+button {
+  font-family: 'Arial', sans-serif;
+  font-size: 1rem;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .App {
+      padding: 10px;
+  }
+
+  .App-header {
+      font-size: 2rem;
+  }
+
+  .dashboard {
+      gap: 15px;
+  }
+
+  .status-message {
+      font-size: 1rem;
+      padding: 8px;
+  }
+
+  h1 {
+      font-size: 1.5rem;
+  }
+
+  h2 {
+      font-size: 1.25rem;
+  }
+
+  h3 {
+      font-size: 1.1rem;
   }
 }

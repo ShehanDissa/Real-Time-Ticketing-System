@@ -1,0 +1,45 @@
+.ticket-manager {
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+.start-stop-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 10px 0;
+    cursor: pointer;
+    background: #6a11cb;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-right: 6px;
+}
+
+.start-stop-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    margin-left: 6px;
+}
+
+.start-stop-button:hover:not(:disabled) {
+    background-color: #2575fc;
+}
+
+.scrollable-list {
+    max-height: 300px; /* Set a max height for the scrollable area */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.customer-list, .vendor-list {
+    margin-top: 20px;
+}
+
+.customer-list p, .vendor-list p {
+    color: #999;
+    font-style: italic;
+}

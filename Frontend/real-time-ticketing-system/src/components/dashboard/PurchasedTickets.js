@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import {fetchPurchasedTickets} from '../../services/PurchaseService';
+import { fetchPurchasedTickets } from '../../services/PurchaseService';
+import { Box, Typography, Paper, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
+import '../../sass/purchasedTickets.scss';
 
 const PurchasedTickets = () => {
     const [tickets, setTickets] = useState([]);
@@ -24,39 +26,38 @@ const PurchasedTickets = () => {
     }, []);
 
     return (
-        <div>
-            <h1>Purchased Tickets</h1>
+        <Box className="purchased-tickets-container">
+            <Typography variant="h4" gutterBottom>Purchased Tickets</Typography>
             {error ? (
-                <p style={{ color: 'red' }}>{error}</p>
+                <Typography color="error">{error}</Typography>
             ) : tickets.length > 0 ? (
-                <div style={{ maxHeight: '400px', overflowY: 'auto', border: '1px solid #ddd', borderRadius: '8px' }}>
-                    <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-                        <thead>
-                        <tr>
-                            <th style={{ borderBottom: '1px solid #ddd', padding: '8px', textAlign: 'left' }}>Ticket ID</th>
-                            <th style={{ borderBottom: '1px solid #ddd', padding: '8px', textAlign: 'left' }}>Customer ID</th>
-                            <th style={{ borderBottom: '1px solid #ddd', padding: '8px', textAlign: 'left' }}>Purchased At</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {tickets.map(ticket => (
-                            <tr key={ticket.id}>
-                                <td style={{ padding: '8px', borderBottom: '1px solid #f2f2f2' }}>{ticket.ticketId}</td>
-                                <td style={{ padding: '8px', borderBottom: '1px solid #f2f2f2' }}>{ticket.customerId}</td>
-                                <td style={{ padding: '8px', borderBottom: '1px solid #f2f2f2' }}>
-                                    {new Date(ticket.purchasedAt).toLocaleString()}
-                                </td>
-                            </tr>
-                        ))}
-                        </tbody>
-                    </table>
-                </div>
+                <Paper className="tickets-table-paper" elevation={3}>
+                    <div className="scrollable-table-container">
+                        <Table>
+                            <TableHead>
+                                <TableRow>
+                                    <TableCell><strong>Ticket ID</strong></TableCell>
+                                    <TableCell><strong>Customer ID</strong></TableCell>
+                                    <TableCell><strong>Purchased At</strong></TableCell>
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
+                                {tickets.map(ticket => (
+                                    <TableRow key={ticket.id}>
+                                        <TableCell>{ticket.ticketId}</TableCell>
+                                        <TableCell>{ticket.customerId}</TableCell>
+                                        <TableCell>{new Date(ticket.purchasedAt).toLocaleString()}</TableCell>
+                                    </TableRow>
+                                ))}
+                            </TableBody>
+                        </Table>
+                    </div>
+                </Paper>
             ) : (
-                <p>No tickets purchased.</p>
+                <Typography>No tickets purchased.</Typography>
             )}
-        </div>
+        </Box>
     );
 };
 
 export default PurchasedTickets;
-

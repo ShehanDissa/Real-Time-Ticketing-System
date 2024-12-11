@@ -1,0 +1,28 @@
+.http-stats-container {
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    max-width: 400px;
+    margin: 0 auto;
+    border: 3px solid #6a11cb;
+    background-color: #f3e7ff !important;
+    margin-top: 24px;
+    border-radius: 8px;
+}
+
+.stats-card {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.stats-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+h6 {
+    font-size: 1rem;
+    color: #333;
+}

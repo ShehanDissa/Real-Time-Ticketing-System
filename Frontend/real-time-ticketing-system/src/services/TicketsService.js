@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API_URL = 'http://localhost:8080/tickets';
-const token = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJTaGVoYW4iLCJpYXQiOjE3MzMwNTYzMDksImV4cCI6MTczNDc4NDMwOX0.6Qufh3JtRMNOOtFdgiIUXI6ZQCHMPV_plP5E8nXjxls';
+const token = localStorage.getItem('accessToken');
 
 const fetchAvailableTickets = async () => {
     try {
@@ -31,4 +31,35 @@ const fetchAvailableTicketCount = async () => {
     }
 };
 
-export { fetchAvailableTickets, fetchAvailableTicketCount };
+const addTicket = async (count) => {
+    try {
+        const response = await axios.post(`${API_URL}/add`, count, {
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`,
+            },
+        });
+        return response.data;
+    } catch (error) {
+        console.error('Error adding ticket:', error);
+        throw error;
+    }
+}
+
+const purchaseTicket = async (retrievalRate,id) => {
+    try {
+        const response = await axios.post(`${API_URL}/remove`, { count:retrievalRate, customerId: id }, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        });
+        return response.data;
+    } catch (error) {
+        console.error('Error purchasing ticket:', error);
+        throw error;
+    }
+}
+
+
+
+export { fetchAvailableTickets, fetchAvailableTicketCount, addTicket, purchaseTicket };

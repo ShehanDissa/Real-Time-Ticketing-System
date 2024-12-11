@@ -1,0 +1,40 @@
+.ticket-count-container {
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fa;
+    border-radius: 8px;
+    max-width: 400px;
+    margin: 20px auto;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 3px solid #6a11cb;
+    background-color: #f3e7ff !important;
+}
+
+.ticket-count-header {
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+    margin: 0;
+    padding: 10px 0;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+}
+
+.ticket-count-header span {
+    font-size: 20px;
+    font-weight: normal;
+}
+
+@media (max-width: 600px) {
+    .ticket-count-container {
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    .ticket-count-header {
+        font-size: 18px;
+    }
+}

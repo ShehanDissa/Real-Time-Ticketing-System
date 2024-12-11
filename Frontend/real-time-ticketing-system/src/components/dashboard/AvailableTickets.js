@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import {fetchAvailableTickets} from '../../services/TicketsService';
+import { fetchAvailableTickets } from '../../services/TicketsService';
+import { Box, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
+import '../../sass/availableTickets.scss';
 
 const AvailableTickets = () => {
     const [tickets, setTickets] = useState([]);
@@ -24,39 +26,36 @@ const AvailableTickets = () => {
     }, []);
 
     return (
-        <div>
-            <h1>Available Tickets</h1>
+        <Box className="available-tickets-container">
+            <Typography variant="h4" gutterBottom><h2>Available Tickets</h2></Typography>
             {error ? (
-                <p style={{ color: 'red' }}>{error}</p>
+                <Typography color="error">{error}</Typography>
             ) : tickets.length > 0 ? (
-                <div style={{ maxHeight: '400px', overflowY: 'auto', border: '1px solid #ddd', borderRadius: '8px' }}>
-                    <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-                        <thead>
-                        <tr>
-                            <th style={{ borderBottom: '1px solid #ddd', padding: '8px', textAlign: 'left' }}>ID</th>
-                            <th style={{ borderBottom: '1px solid #ddd', padding: '8px', textAlign: 'left' }}>Status</th>
-                            <th style={{ borderBottom: '1px solid #ddd', padding: '8px', textAlign: 'left' }}>Created At</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {tickets.map(ticket => (
-                            <tr key={ticket.id}>
-                                <td style={{ padding: '8px', borderBottom: '1px solid #f2f2f2' }}>{ticket.id}</td>
-                                <td style={{ padding: '8px', borderBottom: '1px solid #f2f2f2' }}>{ticket.status}</td>
-                                <td style={{ padding: '8px', borderBottom: '1px solid #f2f2f2' }}>
-                                    {new Date(ticket.createdAt).toLocaleString()}
-                                </td>
-                            </tr>
-                        ))}
-                        </tbody>
-                    </table>
-                </div>
+                <TableContainer component={Paper} className="table-container">
+                    <Table>
+                        <TableHead>
+                            <TableRow>
+                                <TableCell>ID</TableCell>
+                                <TableCell>Status</TableCell>
+                                <TableCell>Created At</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {tickets.map(ticket => (
+                                <TableRow key={ticket.id}>
+                                    <TableCell>{ticket.id}</TableCell>
+                                    <TableCell>{ticket.status}</TableCell>
+                                    <TableCell>{new Date(ticket.createdAt).toLocaleString()}</TableCell>
+                                </TableRow>
+                            ))}
+                        </TableBody>
+                    </Table>
+                </TableContainer>
             ) : (
-                <p>No tickets available.</p>
+                <Typography>No tickets available.</Typography>
             )}
-        </div>
+        </Box>
     );
 };
 
 export default AvailableTickets;
-
