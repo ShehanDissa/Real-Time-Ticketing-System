@@ -11,12 +11,7 @@
         width: 100%;
         align-items: center;
         margin-bottom: 20px;
-  
-        .status-message {
-          font-size: 24px;
-          font-weight: bold;
-          text-align: center;
-          flex-grow: 1;
+
         }
   
         .buy-ticket-button {
@@ -65,11 +60,11 @@
         }
       }
     }
-  }
+  
 
-  /* Typography for Specific Elements */
+
 h1, h2, h3 {
-    font-family: 'Roboto', sans-serif; /* Use a modern sans-serif font */
+    font-family: 'Roboto', sans-serif;
     font-weight: 700;
   }
   
@@ -105,7 +100,7 @@ h1, h2, h3 {
     font-size: 1rem;
   }
   
-  /* Media Queries for Responsiveness */
+
   @media (max-width: 768px) {
     .App {
         padding: 10px;
@@ -119,10 +114,6 @@ h1, h2, h3 {
         gap: 15px;
     }
   
-    .status-message {
-        font-size: 1rem;
-        padding: 8px;
-    }
   
     h1 {
         font-size: 1.5rem;
@@ -149,6 +140,10 @@ h1, h2, h3 {
     margin: auto;
     margin-top: 24px;
     border: 3px solid #3f7d20;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    flex-grow: 1;
   }
 
   .App2 {
@@ -164,7 +159,6 @@ h1, h2, h3 {
     justify-content: center;
     align-items: center;
     width: 400px;
-    margin-left: 176px;
     margin-bottom: 20px;
   }
 

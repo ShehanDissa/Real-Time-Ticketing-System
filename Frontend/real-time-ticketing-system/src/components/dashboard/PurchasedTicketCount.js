@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { fetchPurchasedTicketCount } from '../../services/PurchaseService';
 import '../../sass/purchasedTicketCount.scss';
+import { Card, CardContent } from '@mui/material';
+
 
 const PurchasedTicketCount = () => {
 
@@ -25,18 +27,23 @@ const PurchasedTicketCount = () => {
     }, []);
 
     return (
-        <div className="ticket-count-container">
-            <h1 className="ticket-count-header">
-                Purchased Ticket Count:{' '}
-                {error ? (
-                    <span className="error-message">{error}</span>
-                ) : purchasedTicketCount !== null ? (
-                    <span>{purchasedTicketCount}</span>
-                ) : (
-                    <span>Loading...</span>
-                )}
-            </h1>
-        </div>
+        <Card className="ticket-count-card">
+            <CardContent>
+                <div className="ticket-count-container">
+                    <h1 className="ticket-count-header">
+                        Purchased Ticket Count:{' '}
+                        {error ? (
+                            <span className="error-message">{error}</span>
+                        ) : purchasedTicketCount !== null ? (
+                            <span>{purchasedTicketCount}</span>
+                        ) : (
+                            <span>Loading...</span>
+                        )}
+                    </h1>
+                </div>
+            </CardContent>
+</Card>
+
     );
 };
 

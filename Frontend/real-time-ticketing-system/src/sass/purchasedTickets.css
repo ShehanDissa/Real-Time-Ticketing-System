@@ -1,0 +1,125 @@
+.purchased-tickets-container {
+  padding: 20px;
+  font-family: "Arial", sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  border: 3px solid #6a11cb;
+  border-radius: 8px;
+}
+
+.tickets-grid {
+  margin-top: 20px;
+}
+
+.ticket-card {
+  border-radius: 12px;
+  background-color: #f5f5f5;
+  transition: transform 0.3s ease-in-out;
+}
+.ticket-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.ticket-card .ticket-image {
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+.ticket-card .ticket-id, .ticket-card .customer-id, .ticket-card .purchased-date {
+  font-size: 1rem;
+  margin: 10px 0;
+}
+.ticket-card .ticket-id {
+  font-weight: bold;
+  color: #6a11cb;
+}
+.ticket-card .customer-id, .ticket-card .purchased-date {
+  color: #333;
+}
+
+.divider {
+  margin-top: 36px !important;
+  margin-bottom: 36px !important;
+  border: 1px dotted #ccc !important;
+}
+
+.heading {
+  font-family: "Roboto", sans-serif;
+  font-size: 2rem;
+  font-weight: 700px !important;
+  color: #272526;
+  text-align: center;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.purchased-tickets-container {
+  padding: 20px;
+  font-family: "Arial", sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.tickets-grid {
+  margin-top: 20px;
+  max-height: 500px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.ticket-card {
+  border-radius: 12px;
+  background-color: #f5f5f5;
+  transition: transform 0.3s ease-in-out;
+}
+.ticket-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.ticket-card .ticket-image {
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+.ticket-card .ticket-id, .ticket-card .customer-id, .ticket-card .purchased-date {
+  font-size: 1rem;
+  margin: 10px 0;
+}
+.ticket-card .ticket-id {
+  font-weight: bold;
+  color: #6a11cb;
+}
+.ticket-card .customer-id, .ticket-card .purchased-date {
+  color: #333;
+}
+
+.divider {
+  margin-top: 36px !important;
+  margin-bottom: 36px !important;
+  border: 1px dotted #ccc !important;
+}
+
+.heading {
+  font-family: "Roboto", sans-serif;
+  font-size: 2rem;
+  font-weight: 700px !important;
+  color: #272526;
+  text-align: center;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.tickets-grid::-webkit-scrollbar {
+  width: 8px;
+}
+
+.tickets-grid::-webkit-scrollbar-thumb {
+  background: #6a11cb;
+  border-radius: 4px;
+}
+
+.tickets-grid::-webkit-scrollbar-thumb:hover {
+  background: #472b7a;
+}/*# sourceMappingURL=purchasedTickets.css.map */

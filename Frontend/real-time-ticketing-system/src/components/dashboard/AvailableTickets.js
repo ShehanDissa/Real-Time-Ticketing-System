@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { fetchAvailableTickets } from '../../services/TicketsService';
-import { Box, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
+import { Box, Typography, Paper } from '@mui/material';
 import '../../sass/availableTickets.scss';
-
 const AvailableTickets = () => {
     const [tickets, setTickets] = useState([]);
     const [error, setError] = useState(null);
@@ -18,39 +17,50 @@ const AvailableTickets = () => {
     };
 
     useEffect(() => {
-        fetchTickets().then(r => console.log('Tickets fetched'));
-
+        fetchTickets().then(() => console.log('Tickets fetched'));
         const intervalId = setInterval(fetchTickets, 5000);
 
         return () => clearInterval(intervalId);
     }, []);
 
+    const images = [
+        'https://via.placeholder.com/150/6a11cb',
+        'https://via.placeholder.com/150/f093fb',
+        'https://via.placeholder.com/150/4facfe',
+        'https://via.placeholder.com/150/ff9a9e',
+        'https://via.placeholder.com/150/a18cd1',
+    ];
+
     return (
         <Box className="available-tickets-container">
-            <Typography variant="h4" gutterBottom><h2>Available Tickets</h2></Typography>
+            <Typography variant="h4" className="heading">
+                Available Tickets
+            </Typography>
             {error ? (
                 <Typography color="error">{error}</Typography>
             ) : tickets.length > 0 ? (
-                <TableContainer component={Paper} className="table-container">
-                    <Table>
-                        <TableHead>
-                            <TableRow>
-                                <TableCell>ID</TableCell>
-                                <TableCell>Status</TableCell>
-                                <TableCell>Created At</TableCell>
-                            </TableRow>
-                        </TableHead>
-                        <TableBody>
-                            {tickets.map(ticket => (
-                                <TableRow key={ticket.id}>
-                                    <TableCell>{ticket.id}</TableCell>
-                                    <TableCell>{ticket.status}</TableCell>
-                                    <TableCell>{new Date(ticket.createdAt).toLocaleString()}</TableCell>
-                                </TableRow>
-                            ))}
-                        </TableBody>
-                    </Table>
-                </TableContainer>
+                <div className='ticCard'>
+                    <Box className="tickets-scroller">
+                        {tickets.map((ticket, index) => (
+                            <Paper key={ticket.id} className="ticket-card">
+                                <img
+                                    src={images[index % images.length]}
+                                    alt={`Ticket ${ticket.id}`}
+                                    className="ticket-card-image"
+                                />
+                                <Typography className="ticket-card-id">
+                                    <strong>ID:</strong> {ticket.id}
+                                </Typography>
+                                <Typography className="ticket-card-status">
+                                    <strong>Status:</strong> {ticket.status}
+                                </Typography>
+                                <Typography className="ticket-card-date">
+                                    <strong>Created At:</strong> {new Date(ticket.createdAt).toLocaleString()}
+                                </Typography>
+                            </Paper>
+                        ))}
+                    </Box>
+                </div>
             ) : (
                 <Typography>No tickets available.</Typography>
             )}

@@ -2,6 +2,7 @@ import { useState } from "react";
 import Customer from "../../services/CustomerService";
 import Vendor from "../../services/VendorService";
 import '../../sass/ticketManager.scss';
+import { Card, CardContent, Typography } from '@mui/material';
 
 const customerRetrievalRate = localStorage.getItem('customerRetrievalRate') || 100;
 const ticketReleaseRate = localStorage.getItem('ticketReleaseRate') || 100;
@@ -78,39 +79,52 @@ const TicketManager = () => {
                 Stop System
             </button>
 
-            <div className="customer-list">
-                {customers.length === 0 ? (
-                    <p>No customers available.</p>
-                ) : (
-                    <div className="scrollable-list">
-                        {customers.map((customer) => (
-                            <Customer
-                                key={customer.id}
-                                id={customer.id}
-                                retrievalRate={customer.retrievalRate}
-                                onCompletion={handleCustomerCompletion}
-                            />
-                        ))}
-                    </div>
-                )}
-            </div>
+            <div className="lists-container">
+    <Card className="customer-card" elevation={3}>
+        <CardContent>
+            <Typography variant="h5" className="card-heading">
+                Customer List
+            </Typography>
+            {customers.length === 0 ? (
+                <Typography>No customers available.</Typography>
+            ) : (
+                <div className="scrollable-list">
+                    {customers.map((customer) => (
+                        <Customer
+                            key={customer.id}
+                            id={customer.id}
+                            retrievalRate={customer.retrievalRate}
+                            onCompletion={handleCustomerCompletion}
+                        />
+                    ))}
+                </div>
+            )}
+        </CardContent>
+    </Card>
 
-            <div className="vendor-list">
-                {vendors.length === 0 ? (
-                    <p>No vendors available.</p>
-                ) : (
-                    <div className="scrollable-list">
-                        {vendors.map((vendor) => (
-                            <Vendor
-                                key={vendor.id}
-                                id={vendor.id}
-                                count={vendor.count}
-                                onCompletion={handleVendorCompletion}
-                            />
-                        ))}
-                    </div>
-                )}
-            </div>
+    <Card className="vendor-card" elevation={3}>
+        <CardContent>
+            <Typography variant="h5" className="card-heading">
+                Vendor List
+            </Typography>
+            {vendors.length === 0 ? (
+                <Typography>No vendors available.</Typography>
+            ) : (
+                <div className="scrollable-list">
+                    {vendors.map((vendor) => (
+                        <Vendor
+                            key={vendor.id}
+                            id={vendor.id}
+                            count={vendor.count}
+                            onCompletion={handleVendorCompletion}
+                        />
+                    ))}
+                </div>
+            )}
+        </CardContent>
+    </Card>
+</div>
+
         </div>
     );
 };

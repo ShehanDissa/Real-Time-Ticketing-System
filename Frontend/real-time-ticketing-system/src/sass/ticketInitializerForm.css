@@ -1,0 +1,32 @@
+.ticket-initializer-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  border: 3px solid #6a11cb !important;
+  background: linear-gradient(135deg, #faf6ff, #f8fcff);
+  margin: 0 auto;
+  padding: 24px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-top: 76px;
+}
+.ticket-initializer-form .form-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #272526;
+}
+.ticket-initializer-form .form-field {
+  margin-bottom: 16px;
+}
+.ticket-initializer-form .form-button {
+  width: 100%;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white;
+  font-weight: bold;
+  margin: 15px 0;
+}
+.ticket-initializer-form .form-button:hover {
+  background: linear-gradient(135deg, #2575fc, #6a11cb);
+}/*# sourceMappingURL=ticketInitializerForm.css.map */

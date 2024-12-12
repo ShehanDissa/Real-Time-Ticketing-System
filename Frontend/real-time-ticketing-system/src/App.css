@@ -13,16 +13,7 @@
   }
 }
 
-/* .App-header {
-  background-color: #282c34;
-  min-height: 10vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-} */
+
 
 .status-message {
   font-size: 1.2rem;
@@ -51,9 +42,9 @@
   }
 }
 
-/* Typography for Specific Elements */
+
 h1, h2, h3 {
-  font-family: 'Roboto', sans-serif; /* Use a modern sans-serif font */
+  font-family: 'Roboto', sans-serif; 
   font-weight: 700;
 }
 
@@ -89,7 +80,7 @@ button {
   font-size: 1rem;
 }
 
-/* Media Queries for Responsiveness */
+
 @media (max-width: 768px) {
   .App {
       padding: 10px;
