@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { fetchAvailableTickets } from '../../services/TicketsService';
 import { Box, Typography, Paper } from '@mui/material';
 import '../../sass/availableTickets.scss';
+import cardImg from '../../assests/WhatsApp Image 2024-11-25 at 11.02.59-1732518463485.jpeg';
+
 const AvailableTickets = () => {
     const [tickets, setTickets] = useState([]);
     const [error, setError] = useState(null);
@@ -29,7 +31,9 @@ const AvailableTickets = () => {
         'https://via.placeholder.com/150/4facfe',
         'https://via.placeholder.com/150/ff9a9e',
         'https://via.placeholder.com/150/a18cd1',
+        cardImg,
     ];
+    
 
     return (
         <Box className="available-tickets-container">

@@ -23,7 +23,7 @@ const BuyTicket = () => {
         try {
             const data = await purchaseTicket(1, customerId);
             console.log(data);
-            setOpen(false); // Close modal after successful purchase
+            setOpen(false); 
         } catch (err) {
             setError('Error purchasing tickets. Please try again later.');
         }

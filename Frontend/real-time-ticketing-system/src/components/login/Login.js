@@ -6,21 +6,20 @@ import { TextField, Button, Typography, Box } from '@mui/material';
 function Login({ onLoginSuccess }) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [isSignUp, setIsSignUp] = useState(false); // Toggle between Login and Sign-Up
+    const [isSignUp, setIsSignUp] = useState(false);
     const [error, setError] = useState('');
-    const [message, setMessage] = useState(''); // Success message for sign-up
-
+    const [message, setMessage] = useState(''); 
     const handleSubmit = async () => {
         try {
-            setError(''); // Clear previous errors
-            setMessage(''); // Clear previous messages
+            setError('');
+            setMessage(''); 
 
             if (isSignUp) {
                 // Sign Up logic
                 const response = await registerUser(username, password);
                 if (response.status === 'User Registered Successfully') {
                     setMessage('User registered successfully! You can now log in.');
-                    setIsSignUp(false); // Redirect to login mode
+                    setIsSignUp(false);
                 } else {
                     throw new Error(response.message || 'Registration failed');
                 }

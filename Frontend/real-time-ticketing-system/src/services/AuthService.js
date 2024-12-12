@@ -18,7 +18,7 @@ const loginUser = async (username, password) => {
     }
 };
 
-// Register user function
+
 const registerUser = async (username, password) => {
     try {
         const response = await axios.post('http://localhost:8080/auth/register', {
@@ -27,7 +27,7 @@ const registerUser = async (username, password) => {
         });
         console.log(response.data);
 
-        return response.data; // Assuming the backend sends a success message
+        return response.data; 
     } catch (error) {
         if (error.response && error.response.status === 400) {
             throw new Error('User already exists');
@@ -36,5 +36,4 @@ const registerUser = async (username, password) => {
     }
 };
 
-// Export both functions
 export { loginUser, registerUser };

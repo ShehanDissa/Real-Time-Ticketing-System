@@ -27,8 +27,8 @@ const HttpStats = () => {
         return () => clearInterval(intervalId);
     }, []);
 
-    if (loading) return <CircularProgress color="primary" />; // Replaced loading message with a spinner
-    if (error) return <Typography color="error">{error}</Typography>; // Replaced error message with MUI Typography
+    if (loading) return <CircularProgress color="primary" />; 
+    if (error) return <Typography color="error">{error}</Typography>; 
 
     return (
         <Box className="http-stats-container">

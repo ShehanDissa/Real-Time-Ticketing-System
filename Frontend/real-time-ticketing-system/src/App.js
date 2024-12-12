@@ -1,5 +1,4 @@
 import { useState } from 'react';
-// import './App.css';
 import './sass/app.scss';
 import AvailableTicketCount from "./components/dashboard/AvailableTicketCount";
 import AvailableTickets from "./components/dashboard/AvailableTickets";
