@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import './App.css';
+// import './App.css';
+import './sass/app.scss';
 import AvailableTicketCount from "./components/dashboard/AvailableTicketCount";
 import AvailableTickets from "./components/dashboard/AvailableTickets";
 import PurchasedTickets from "./components/dashboard/PurchasedTickets";
@@ -24,7 +25,7 @@ function App() {
     }
 
     return (
-        <div className="App">
+        <div className="App2">
             <header className="App-header">
                 
             </header>
